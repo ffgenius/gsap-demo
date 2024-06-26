@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>gsap01</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <link href="https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/common.css">
+</head>
+<style>
+    #parallax__cont {
+        overflow: hidden;
+    }
+
+    .parallax__item {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .parallax__item:nth-child(2n) {
+        background-color: #222;
+    }
+
+    .parallax__item__num {
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        font-size: 5vw;
+        line-height: 1;
+    }
+
+    .parallax__item__img {
+        width: 10vw;
+        height: 10vw;
+        background-color: #fff;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .parallax__item:nth-child(1) .parallax__item__img {
+        background-image: url(assets/img/images14.jpg);
+    }
+    .parallax__item:nth-child(2) .parallax__item__img {
+        background-image: url(assets/img/images15.jpg);
+    }
+    .parallax__item:nth-child(3) .parallax__item__img {
+        background-image: url(assets/img/images03.jpg);
+    }
+    .parallax__item:nth-child(4) .parallax__item__img {
+        background-image: url(assets/img/images04.jpg);
+    }
+    .parallax__item:nth-child(5) .parallax__item__img {
+        background-image: url(assets/img/images05.jpg);
+    }
+    .parallax__item:nth-child(6) .parallax__item__img {
+        background-image: url(assets/img/images06.jpg);
+    }
+    .parallax__item:nth-child(7) .parallax__item__img {
+        background-image: url(assets/img/images07.jpg);
+    }
+    .parallax__item:nth-child(8) .parallax__item__img {
+        background-image: url(assets/img/images08.jpg);
+    }
+    .parallax__item:nth-child(9) .parallax__item__img {
+        background-image: url(assets/img/images09.jpg);
+    }
+    .parallax__item__img.active {
+        filter: hue-rotate(100deg);
+    }
+</style>
+<body>
+<main id="parallax__cont">
+    <section id="section1" class="parallax__item">
+        <span class="parallax__item__num">01</span>
+        <div class="parallax__item__img"></div>
+    </section>
+    <section id="section2" class="parallax__item">
+        <span class="parallax__item__num">02</span>
+        <div class="parallax__item__img"></div>
+    </section>
+    <section id="section3" class="parallax__item">
+        <span class="parallax__item__num">03</span>
+        <div class="parallax__item__img"></div>
+    </section>
+    <section id="section4" class="parallax__item">
+        <span class="parallax__item__num">04</span>
+        <div class="parallax__item__img"></div>
+    </section>
+    <section id="section5" class="parallax__item">
+        <span class="parallax__item__num">05</span>
+        <div class="parallax__item__img"></div>
+    </section>
+    <section id="section6" class="parallax__item">
+        <span class="parallax__item__num">06</span>
+        <div class="parallax__item__img"></div>
+    </section>
+    <section id="section7" class="parallax__item">
+        <span class="parallax__item__num">07</span>
+        <div class="parallax__item__img"></div>
+    </section>
+    <section id="section8" class="parallax__item">
+        <span class="parallax__item__num">08</span>
+        <div class="parallax__item__img"></div>
+    </section>
+    <section id="section9" class="parallax__item">
+        <span class="parallax__item__num">09</span>
+        <div class="parallax__item__img"></div>
+    </section>
+</main>
+<script>
+  const box1 = document.querySelector("#section1 .parallax__item__img");
+  const box2 = document.querySelector("#section2 .parallax__item__img");
+  const box3 = document.querySelector("#section3 .parallax__item__img");
+  const box4 = document.querySelector("#section4 .parallax__item__img");
+  const box5 = document.querySelector("#section5 .parallax__item__img");
+  const box6 = document.querySelector("#section6 .parallax__item__img");
+  const box7 = document.querySelector("#section7 .parallax__item__img");
+  const box8 = document.querySelector("#section8 .parallax__item__img");
+
+  // 01
+  gsap.to(box1, {
+    x: '40vw',
+    duration: 2,
+    borderRadius: 100,
+    rotate: 360,
+  })
+
+  // 02: trigger 指定目标元素，当目标元素可视时开始动画
+  gsap.to(box2, {
+    x: '40vw',
+    duration: 2,
+    borderRadius: 100,
+    rotate: 360,
+    scrollTrigger: {
+      trigger: box2,
+    }
+  })
+
+  // 03: toggleActions （default: play none none none）
+  // 四个属性:
+  //        onEnter: 当滚动元素进入触发元素时（从上自下）
+  //        onLeave: 当滚动元素离开触发元素时（继续向下）
+  //        onEnterBack: 当滚动元素回到触发元素（从下自上）
+  //        onLeaveBack: 当滚动元素离开触发元素（继续向上）
+  // 可选属性:
+  //        play: 播放动画
+  //        pause: 暂停动画
+  //        resume: 继续播放动画
+  //        reverse: 反向播放动画
+  //        restart: 重新开始动画
+  //        reset: 将动画重置到初始状态，并暂停
+  //        complete: 将动画快进至结束
+  //        none: 将不执行任何操作
+  gsap.to(box3, {
+    x: '40vw',
+    duration: 2,
+    borderRadius: 100,
+    rotate: 360,
+    scrollTrigger: {
+      trigger: box3,
+      toggleActions: "play pause reverse reset",
+    }
+  })
+
+  // 04
+  // top: 目标元素距离某个位置时开始动画
+  // end: 目标元素距离某个位置时结束动画
+  // markers: 显示动画执行的标记点
+  gsap.to(box4, {
+    x: '40vw',
+    duration: 2,
+    borderRadius: 100,
+    rotate: 360,
+    scrollTrigger: {
+      trigger: box4,
+      toggleActions: "play none reverse none",
+      start: 'top 50%',
+      end: 'bottom 20%',
+      // markers: true
+    }
+  })
+
+  // 05 : scrub 将滚动条与动画绑定，滚动条滚动时播放动画
+  // Boolean: 开启/关闭
+  // Number: 动画延迟，使得过渡更平滑（数字越大越平滑，但是延迟越大）
+  gsap.to(box5, {
+    duration: 2,
+    x: 500,
+    rotation: 360,
+    borderRadius: 100,
+
+    scrollTrigger: {
+      trigger: box5,
+      start: "top 50%",
+      end: "bottom 20%",
+      scrub: 1, //true, 1, 2...
+      markers: false
+    }
+  });
+
+  // 06 : pin 将目标元素固定在窗口中，直到触发元素离开窗口时取消固定（相对位置不变）
+  // Boolean: 开启/关闭
+  // String | Element: 可以指定一个要固定的元素，通常是触发元素的一个子元素
+  gsap.to(box6, {
+    duration: 2,
+    x: 500,
+    rotation: 360,
+    borderRadius: 100,
+
+    scrollTrigger: {
+      trigger: box6,
+      start: "top 50%",
+      end: "bottom 200px",
+      scrub: true,
+      pin: true,
+      markers: false
+    }
+  });
+
+  // 07 : toggleClass 给目标元素添加或移除 className
+  // String: 添加或移除的 className
+  // Object: {targets: String, className: String,}
+  gsap.to(box7, {
+    duration: 2,
+    x: 500,
+    rotation: 360,
+    borderRadius: 100,
+
+    scrollTrigger: {
+      trigger: box7,
+      start: "top center",
+      // end: "bottom 20%",
+      scrub: true,
+      toggleClass: "active",
+      markers: false,
+      id: "box7"
+    }
+  });
+
+  // 08 : callback
+  // 常用方法:
+  //         onEnter: 当触发元素进入视口时调用
+  //         onLeave: 当触发元素离开视口时调用
+  //         onEnterBack: 当触发元素从视口下方回滚进入视口时调用
+  //         onLeaveBack: 当触发元素从视口下方回滚离开视口时调用
+  //         onUpdate: 当触发元素在视口内滚动时持续调用
+  //         onToggle: 当触发元素进入或离开视口时调用（onEnter 和 onLeave 的综合）
+  //         onRefresh: 每次触发器刷新时调用
+  //         onScrubComplete: 每次 scrub 完成时调用
+  gsap.to(box8, {
+    duration: 2,
+    x: 500,
+    rotation: 360,
+    borderRadius: 100,
+
+    scrollTrigger: {
+      trigger: box8,
+      start: "top center",
+      end: "bottom 20%",
+      scrub: true,
+      markers: true,
+      onEnter: (self) => {console.log(self)},
+      onLeave: () => {console.log("onLeave")},
+      onEnterBack: () => {console.log("onEnterBack")},
+      onLeaveBack: () => {console.log("onLeaveBack")},
+      onUpdate : (self) => {console.log("onUpdate", self.progress.toFixed(3))},
+      onToggle : (self) => {console.log("onToggle", self.isActive)},
+    }
+  });
+
+</script>
+</body>
+</html>

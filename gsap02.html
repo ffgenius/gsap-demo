@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>gsap02</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+    <link href="https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/common.css">
+    <style>
+        #parallax__cont {
+            overflow: hidden;
+        }
+
+        .parallax__item {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .parallax__item:nth-child(2n) {
+            background-color: #222;
+        }
+
+        .parallax__item__num {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            font-size: 5vw;
+            line-height: 1;
+        }
+
+        .parallax__item__img {
+            width: 10vw;
+            height: 10vw;
+            margin: 1vw;
+            background-color: #fff;
+            background-size: cover;
+            background-position: center;
+        }
+
+        #section5 {
+            flex-direction: column;
+        }
+
+        #section5 .parallax__item__text,
+        #section6 .parallax__item__text {
+            font-size: 5vw;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        #section7 .parallax__item__text {
+            font-size: 5vw;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #111;
+            padding: 30px;
+            width: 100%;
+            text-align: center;
+        }
+
+        #section8 {
+            flex-direction: column;
+        }
+
+        #section8 .parallax__item__text {
+            font-size: 2vw;
+            line-height: 1.5;
+            text-transform: uppercase;
+        }
+
+        #section8 .parallax__item__img,
+        #section9 .parallax__item__img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+
+        #section1 .parallax__item__img {
+            background-image: url(assets/img/images14.jpg);
+        }
+
+        #section2 .parallax__item__img {
+            background-image: url(assets/img/images15.jpg);
+        }
+
+        #section3 .parallax__item__img {
+            background-image: url(assets/img/images03.jpg);
+        }
+
+        #section4 .parallax__item__img {
+            background-image: url(assets/img/images04.jpg);
+        }
+
+        #section5 .parallax__item__img {
+            background-image: url(assets/img/images05.jpg);
+        }
+
+        #section6 .parallax__item__img {
+            background-image: url(assets/img/images06.jpg);
+        }
+
+        #section7 .parallax__item__img {
+            background-image: url(assets/img/images07.jpg);
+        }
+
+        #section8 .parallax__item__img {
+            background-image: url(assets/img/images08.jpg);
+        }
+
+        #section9 .parallax__item__img {
+            background-image: url(assets/img/images09.jpg);
+        }
+    </style>
+</head>
+<body>
+<main id="parallax__cont">
+    <section id="section1" class="parallax__item">
+        <span class="parallax__item__num">01</span>
+        <div class="parallax__item__img"></div>
+    </section>
+    <section id="section2" class="parallax__item">
+        <span class="parallax__item__num">02</span>
+        <div class="parallax__item__img i1"></div>
+        <div class="parallax__item__img i2"></div>
+        <div class="parallax__item__img i3"></div>
+    </section>
+    <section id="section3" class="parallax__item">
+        <span class="parallax__item__num">03</span>
+        <div class="parallax__item__img"></div>
+        <div class="parallax__item__img"></div>
+        <div class="parallax__item__img"></div>
+        <div class="parallax__item__img"></div>
+        <div class="parallax__item__img"></div>
+        <div class="parallax__item__img"></div>
+    </section>
+    <section id="section4" class="parallax__item">
+        <span class="parallax__item__num">04</span>
+        <div class="parallax__item__img"></div>
+    </section>
+    <section id="section5" class="parallax__item">
+        <span class="parallax__item__num">05</span>
+        <div class="parallax__item__text t1">section5</div>
+        <div class="parallax__item__text t2">section5</div>
+        <div class="parallax__item__text t3">section5</div>
+        <div class="parallax__item__text t4">section5</div>
+    </section>
+    <section id="section6" class="parallax__item">
+        <span class="parallax__item__num">06</span>
+        <div class="parallax__item__text">section6</div>
+    </section>
+    <section id="section7" class="parallax__item">
+        <span class="parallax__item__num">07</span>
+        <div class="parallax__item__text t1">枯藤老树昏鸦</div>
+        <div class="parallax__item__text t2">小桥流水人家</div>
+        <div class="parallax__item__text t3">古道西风瘦马</div>
+        <div class="parallax__item__text t4">夕阳西下</div>
+        <div class="parallax__item__text t5">断肠人在天涯</div>
+    </section>
+    <section id="section8" class="parallax__item">
+        <span class="parallax__item__num">08</span>
+        <div class="parallax__item__text t1">section8 title1</div>
+        <div class="parallax__item__text t2">section8 title2</div>
+        <div class="parallax__item__text t3">section8 title3</div>
+        <div class="parallax__item__img i1"></div>
+    </section>
+    <section id="section9" class="parallax__item">
+        <span class="parallax__item__num">09</span>
+        <div class="parallax__item__img"></div>
+    </section>
+</main>
+
+<script>
+  // 01 时间线动画
+  const img_01 = document.querySelector('#section1 .parallax__item__img')
+  const tl01 = gsap.timeline()
+  tl01
+    .to(img_01, {rotation: 720, scale: 0, borderRadius: 200})
+    .to(img_01, {rotation: 0, scale: 1, borderRadius: 20})
+
+  ScrollTrigger.create({
+    animation: tl01,
+    trigger: '#section1',
+    start: 'top top',
+    end: '+=2000',
+    scrub: true,
+    pin: true,
+    anticipatePin: 1,
+    markers: true
+  })
+
+  // 02
+  const tl02 = gsap.timeline()
+  tl02
+    .from('#section2 .i1', {y: -100, autoAlpha: 0, duration: 1, borderRadius: 200})
+    .from('#section2 .i2', {y: 100, autoAlpha: 0, duration: 1, borderRadius: 200})
+    .from('#section2 .i3', {y: -100, autoAlpha: 0, duration: 1, borderRadius: 200})
+
+  ScrollTrigger.create({
+    animation: tl02,
+    trigger: '#section2',
+    start: 'top top',
+    end: '+=2000',
+    scrub: true,
+    pin: true,
+    anticipatePin: 1,
+    markers: true
+  })
+
+  // 03 随机动画
+  const tl03 = gsap.timeline()
+  tl03
+    .from('#section3 .parallax__item__img', {
+      y: 100,
+      autoAlpha: 0,
+      duration: 1,
+      borderRadius: 200,
+      stagger: {
+        amount: 3,
+        from: 'random'
+      },
+      ease: 'back.out(4)'
+    })
+  ScrollTrigger.create({
+    animation: tl03,
+    trigger: '#section3',
+    start: 'top top',
+    end: '+=2000',
+    scrub: true,
+    pin: true,
+    anticipatePin: 1,
+    markers: true
+  })
+
+  // 04 缩放动画
+  const tl04 = gsap.timeline()
+  tl04
+    .from("#section4 .parallax__item__img", {
+      autoAlpha: 0,
+      scale: 5,
+      width: "100vw",
+      height: "100vh",
+    })
+
+  ScrollTrigger.create({
+    animation: tl04,
+    trigger: "#section4",
+    start: "top top",
+    end: "+=2000",
+    scrub: true,
+    pin: true,
+    anticipatePin: 1,
+    markers: true,
+  });
+
+  // 05 文本动画
+  const tl05 = gsap.timeline();
+  tl05.to("#section5 .t1", {xPercent: 300}, "text")
+    .to("#section5 .t2", {xPercent: -300}, "text")
+    .to("#section5 .t3", {xPercent: 300}, "text")
+    .to("#section5 .t4", {xPercent: -300}, "text");
+
+  ScrollTrigger.create({
+    animation: tl05,
+    trigger: "#section5",
+    start: "top top",
+    end: "+=2000",
+    scrub: true,
+    pin: true,
+    anticipatePin: 1,
+    markers: true,
+  });
+
+  // 06 放大文本
+  const tl06 = gsap.timeline();
+  tl06
+    .to("#section6 .parallax__item__text", {scale: 60, duration: 2})
+    .to("#section6 .parallax__item__text", {autoAlpha: 0})
+
+  ScrollTrigger.create({
+    animation: tl06,
+    trigger: "#section6",
+    start: "top top",
+    end: "+=2000",
+    scrub: true,
+    pin: true,
+    anticipatePin: 1,
+    markers: true,
+  });
+
+  // 07
+  const tl07 = gsap.timeline();
+  tl07
+    .from("#section7 .t1", {y: 50, autoAlpha: 0, duration: 1}, "+=1")
+    .from("#section7 .t2", {y: 50, autoAlpha: 0, duration: 1}, "+=1")
+    .from("#section7 .t3", {y: 50, autoAlpha: 0, duration: 1}, "+=1")
+    .from("#section7 .t4", {y: 50, autoAlpha: 0, duration: 1}, "+=1")
+    .from("#section7 .t5", {y: 50, autoAlpha: 0, duration: 1}, "+=1")
+
+  ScrollTrigger.create({
+    animation: tl07,
+    trigger: "#section7",
+    start: "top top",
+    end: "+=6000",
+    scrub: true,
+    pin: true,
+    anticipatePin: 1,
+    markers: true,
+  });
+
+  // 08
+  // innerWidth * 1 从相对于其最终位置的屏幕宽度的右边开始
+  // innerWidth * -1 从相对于其最终位置的屏幕宽度的左边开始
+  const tl08 = gsap.timeline();
+  tl08
+    .from("#section8 .t1", {x: innerWidth * 1})
+    .from("#section8 .t2", {x: innerWidth * -1})
+    .from("#section8 .t3", {x: innerWidth * 1})
+    .from("#section8 .i1", {x: innerWidth * -1, scale: 5, rotation: 720})
+
+  ScrollTrigger.create({
+    animation: tl08,
+    trigger: "#section8",
+    start: "top top",
+    end: "+=6000",
+    scrub: true,
+    pin: true,
+    anticipatePin: 1,
+    markers: true,
+  });
+
+  // 09
+  const tl09 = gsap.timeline();
+  tl09
+    .to("#section9 .parallax__item__img", {scale: 30})
+    .to("#section9 .parallax__item__img", {autoAlpha: 0})
+
+  ScrollTrigger.create({
+    animation: tl09,
+    trigger: "#section9",
+    start: "top top",
+    end: "+=3000",
+    scrub: true,
+    pin: true,
+    anticipatePin: 1,
+    markers: true,
+  });
+</script>
+</body>
+</html>

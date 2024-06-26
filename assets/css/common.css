@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+a {
+    color: #fff;
+    text-decoration: none;
+}
+body {
+    color: #fff;
+    font-family: "NexonLv1Gothic";
+    font-weight: 300;
+    background-color: #111;
+}

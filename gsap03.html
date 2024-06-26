@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>gsap03</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+    <link href="https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/common.css">
+    <style>
+        #parallax__cont {
+            overflow: hidden;
+        }
+
+        .parallax__item {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        #section2,
+        #section4,
+        #section6,
+        #section8 {
+            background-color: #222;
+        }
+
+        .parallax__item__num {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            font-size: 3vw;
+            line-height: 1;
+            z-index: 10;
+        }
+
+        .parallax__item__img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #fff;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .parallax__item__img::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
+        #section1 .parallax__item__img {
+            background-image: url(assets/img/images02@2.jpg);
+        }
+
+        #section2 .parallax__item__img {
+            background-image: url(assets/img/images03@2.jpg);
+        }
+
+        #section3 .parallax__item__img {
+            background-image: url(assets/img/images04@2.jpg);
+        }
+
+        #section4 .parallax__item__img {
+            background-image: url(assets/img/images05@2.jpg);
+        }
+
+        #section5 .parallax__item__img {
+            background-image: url(assets/img/images06@2.jpg);
+        }
+
+        #section6 .parallax__item__img {
+            background-image: url(assets/img/images07@2.jpg);
+        }
+
+        #section7 .parallax__item__img {
+            background-image: url(assets/img/images08@2.jpg);
+        }
+
+        #section8 .parallax__item__img {
+            background-image: url(assets/img/images09@2.jpg);
+        }
+
+        #section9 .parallax__item__img {
+            background-image: url(assets/img/images10@2.jpg);
+        }
+
+        .parallax__item__title {
+            font-size: 5vw;
+            z-index: 100;
+            text-transform: uppercase;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<main id="parallax__cont">
+    <section id="section1" class="parallax__item">
+        <span class="parallax__item__num">01</span>
+        <div class="parallax__item__img"></div>
+        <h2 class="parallax__item__title">section1</h2>
+    </section>
+    <!-- //section1 -->
+
+    <section id="section2" class="parallax__item">
+        <span class="parallax__item__num">02</span>
+        <div class="parallax__item__img"></div>
+        <h2 class="parallax__item__title">section2</h2>
+    </section>
+    <!-- //section2 -->
+
+    <section id="section3" class="parallax__item">
+        <span class="parallax__item__num">03</span>
+        <div class="parallax__item__img"></div>
+        <h2 class="parallax__item__title">section3</h2>
+    </section>
+    <!-- //section3 -->
+
+    <section id="section4" class="parallax__item">
+        <span class="parallax__item__num">04</span>
+        <div class="parallax__item__img"></div>
+        <h2 class="parallax__item__title">section4</h2>
+    </section>
+    <!-- //section4 -->
+
+    <section id="section5" class="parallax__item">
+        <span class="parallax__item__num">05</span>
+        <div class="parallax__item__img"></div>
+        <h2 class="parallax__item__title">section5</h2>
+    </section>
+    <!-- //section5 -->
+
+    <section id="section6" class="parallax__item">
+        <span class="parallax__item__num">06</span>
+        <div class="parallax__item__img"></div>
+        <h2 class="parallax__item__title">section6</h2>
+    </section>
+    <!-- //section6 -->
+
+    <section id="section7" class="parallax__item">
+        <span class="parallax__item__num">07</span>
+        <div class="parallax__item__img"></div>
+        <h2 class="parallax__item__title">section7</h2>
+    </section>
+    <!-- //section7 -->
+
+    <section id="section8" class="parallax__item">
+        <span class="parallax__item__num">08</span>
+        <div class="parallax__item__img"></div>
+        <h2 class="parallax__item__title">section8</h2>
+    </section>
+    <!-- //section8 -->
+
+    <section id="section9" class="parallax__item">
+        <span class="parallax__item__num">09</span>
+        <div class="parallax__item__img"></div>
+        <h2 class="parallax__item__title">section9</h2>
+    </section>
+    <!-- //section9 -->
+</main>
+<script>
+  // 固定某个部分
+  // const panels = document.querySelector("#section5");
+  //
+  // ScrollTrigger.create({
+  //     trigger: panels,
+  //     start: "top top",
+  //     end: "+=100%",
+  //     pin: true,
+  //     pinSpacing: false,
+  //     anticipatePin: 1,
+  // })
+
+  // gsap.utils 提供一些 gsap 的实用性函数
+  gsap.utils.toArray(".parallax__item").forEach(item => {
+    ScrollTrigger.create({
+      trigger: item,
+      start: "top top",
+      end: "+=100%",
+      pin: true,
+      pinSpacing: false,
+      anticipatePin: 1,
+    })
+  })
+
+  // let panels = gsap.utils.toArray(".parallax__item");
+  // let tops = panels.map(panel => ScrollTrigger.create({trigger: panel, start: "top top"}));
+  //
+  // panels.forEach((panel, i) => {
+  //   ScrollTrigger.create({
+  //     trigger: panel,
+  //     start: () => panel.offsetHeight < window.innerHeight ? "top top" : "bottom bottom",
+  //     pin: true,
+  //     pinSpacing: false
+  //   });
+  // });
+  //
+  // ScrollTrigger.create({
+  //   snap: {
+  //     snapTo: (progress, self) => {
+  //       let panelStarts = tops.map(st => st.start),
+  //         snapScroll = gsap.utils.snap(panelStarts, self.scroll());
+  //       return gsap.utils.normalize(0, ScrollTrigger.maxScroll(window), snapScroll);
+  //     },
+  //     duration: 0.5
+  //   }
+  // });
+
+
+  // 常用的 utils 函数
+  // checkPrefix: 会根据浏览器类型返回 css 属性并带上前缀，如不需要前缀则返回原始属性，浏览器不支持则返回 undefined
+
+  // clamps: 提供一个最大值和最小值， 如该值小于最小值则返回最小值，如大于最大值则返回最大值，如在中间则返回原始值
+  //       e.g.
+  //       gsap.utils.clamp(0, 100, 105); // returns 100
+  //       gsap.utils.clamp(0, 100, -50); // returns 0
+  //       gsap.utils.clamp(0, 100, 20); // returns 20
+  //
+  //       let clamper = gsap.utils.clamp(0, 100);
+  //       console.log(clamper(105)); // 100
+  //       console.log(clamper(-50)); // 0
+  //       console.log(clamper(20)); // 20
+
+  // distribute: 接受一个配置对象，可以分配给不同的元素
+
+  // getUnit: 可以返回一个数值的单位
+  //        e.g.
+  //        gsap.utils.getUnit("10px"); // returns "px"
+
+  // Interpolate: 通过传递起始值、结束值和进度值，计算出两个值之间的任何中间值
+  //            e.g.
+  //            gsap.utils.interpolate(0, 100, 0.5); // returns 50
+  //            gsap.utils.interpolate("20px", "40px", 0.5); // "30px"
+  //            gsap.utils.interpolate("red", "blue", 0.5); // "rgba(128,0,128,1)"
+  //            gsap.utils.interpolate(
+  //                { a: 0, b: 10, c: "red" },
+  //                { a: 100, b: 20, c: "blue" },
+  //                0.5
+  //             ); // {a: 50, b: 15, c: "rgba(128,0,128,1)"}
+
+  // mapRange: 将一个值从一个范围映射到另一个范围
+  //          gsap.utils.mapRange(a1, a2, b1, b2, value) 计算公式 b1 + ((value - a1) / (a2 - a1)) * (b2 - b1)
+
+  // normalize: 接受一个数值，并将其标准化到0到1之间 (value - min) / (max - min)
+  //          e.g.
+  //          gsap.utils.normalize(0, 100, 105); // returns 1.05 通常映射一个0-1之间的值，但是超过范围也会返回
+  //          gsap.utils.normalize(-10, 10, 0); // 0.5
+
+  // pipe: 对多个函数调用进行排序，将每个函数的结果传递给下一个函数 pipe(clamp(0, 100), snap(5))(8)
+
+  // random: 随机数
+  //       e.g.
+  //       gsap.utils.random(-100, 100); // -100 - 100 的随机数
+  //       random(["red", "green", "blue"]); // 也可以传入一个 array, 则从数组内随机一个
+  //       gsap.utils.random(0, 500, 5); // 第三个参数表示增量，即获取的随机数为 5 的倍数
+
+  // selector: 从一个作用域中选择元素
+  //          e.g.
+  //          gsap.utils.selector(document.querySelector("#section1"))(".parallax__item__img");
+  //          从 #section1 这个元素作用域下，选择所有的 .parallax__item__img 元素，在框架中可以传入框架对应的 ref
+
+  // shuffle: 随机打乱一个数组
+  //        e.g.
+  //        gsap.utils.shuffle([1, 2, 3, 4, 5]); // 输出随机数组 [2, 4, 1, 5, 3]
+
+  // snap: 捕捉最近的特定增量或数组中的一个值
+  //     e.g.
+  //        gsap.utils.snap(10, 23.5); // 20 捕捉到最接近 23.5 的 10 的倍数的值 20
+  //        gsap.utils.snap([10, 20, 30], 23.5); // 同时也可以传入一个 array
+
+  // splitColor: 将一个字符串颜色转为 十六进制颜色
+  //          e.g.
+  //          gsap.utils.splitColor("red"); // [255, 0, 0]
+  //          gsap.utils.splitColor("#6fb936"); // [111, 185, 54]
+  //          gsap.utils.splitColor("rgba(204, 153, 51, 0.5)"); // [204, 153, 51, 0.5]
+  //          gsap.utils.splitColor("#6fb936", true); // [94, 55, 47] 将第二个参数设置为 true 可以获得 HSL/HSLA 数值
+
+  // toArray: 可以将一组选择器转为数值，参照上述案例
+
+  // unitize: 可以返回一个单单位的数值
+  //        e.e.
+  //        let clamp = gsap.utils.unitize(gsap.utils.clamp(0, 100), "px") // 第一个参数为转化值的方法，第二个参数为单位
+  //        clamp(23) // 23px
+
+  // wrap: 返回一个循环后的值
+  //      e.g.
+  //         gsap.utils.wrap(["red", "green", "yellow"], 5); // 数组每三个一循环, 根据下标 第 5 号元素是 green
+  //         gsap.utils.wrap(5, 10, 12); // [5, 10) 6 7 8 9 10 6 7 8 9 10 6 7 循环两组后返回 7
+
+  // wrapYoyo: 与 wrap 方法类似，但 yoyo 会返回，而不是从头计算
+</script>
+</body>
+</html>
