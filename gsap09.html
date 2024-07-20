@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="assets/css/common.css">
     <style>
         body {
-            --bg-color: #222;
+            --bg-color: #444;
             background-color: var(--bg-color);
         }
 
@@ -264,40 +264,42 @@
   ScrollTrigger.create({
     start: "top top",
     end: "bottom bottom",
+      markers: true,
     onUpdate: (self) => {
       // -1 用户向下滚动
       // 1 用户向上滚动
+        console.log(self.direction)
       self.direction === -1 ? showNav.play() : showNav.reverse();
     }
   })
 
-  let links = gsap.utils.toArray("#parallax__nav ul li a");
-
-  links.forEach(link => {
-    let ele = document.querySelector(link.getAttribute("href"));
-    let linkST = ScrollTrigger.create({
-      trigger: ele,
-      start: "top top"
-    });
-
-    ScrollTrigger.create({
-      trigger: ele,
-      start: "top center",
-      end: "bottom center",
-      // markers: true,
-      onToggle: self => setActive(link)
-    })
-
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-      gsap.to(window, {duration: 1, scrollTo: linkST.start, overwrite: "auto"});
-    })
-  })
-
-  function setActive(link) {
-    links.forEach(l => l.classList.remove("active"));
-    link.classList.add("active");
-  }
+  // let links = gsap.utils.toArray("#parallax__nav ul li a");
+  //
+  // links.forEach(link => {
+  //   let ele = document.querySelector(link.getAttribute("href"));
+  //   let linkST = ScrollTrigger.create({
+  //     trigger: ele,
+  //     start: "top top"
+  //   });
+  //
+  //   ScrollTrigger.create({
+  //     trigger: ele,
+  //     start: "top center",
+  //     end: "bottom center",
+  //     // markers: true,
+  //     onToggle: self => setActive(link)
+  //   })
+  //
+  //   link.addEventListener("click", (e) => {
+  //     e.preventDefault();
+  //     gsap.to(window, {duration: 1, scrollTo: linkST.start, overwrite: "auto"});
+  //   })
+  // })
+  //
+  // function setActive(link) {
+  //   links.forEach(l => l.classList.remove("active"));
+  //   link.classList.add("active");
+  // }
 </script>
 </body>
 </html>
